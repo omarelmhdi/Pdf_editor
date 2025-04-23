@@ -1,12 +1,17 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 from bot import create_bot
 import threading
+import os
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return 'Bot is running!'
+    return 'Bot is running! 🚀'
+
+@app.route('/<path:path>')
+def catch_all(path):
+    return 'Bot is running! 🚀'
 
 def run_bot():
     bot = create_bot()
